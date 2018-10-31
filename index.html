@@ -3,33 +3,19 @@
   <head>
     <base target="_top">
   </head>
-  <body>
+  <body> 
 
-  <form action='https://www.apple.com/itunes/' method='GET' id='ios'>
-    <input type="hidden" name="mt" value="8">
-  </form>
-  <form action='https://play.google.com/store/apps/details' method='GET' id='android'>
-    <input type="hidden" name="id" value="com.Kumakano.UpandBeyond">
-  </form>  
-
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-
-$(document).ready(function() {
-if((navigator.userAgent.toLowerCase().indexOf("iphone") > -1) || (navigator.userAgent.toLowerCase().indexOf("ipod") > -1) || (navigator.userAgent.toLowerCase().indexOf("ipad") > -1)) {
-  $("#ios").submit();
-
-} else if ((navigator.userAgent.toLowerCase().indexOf("android") > -1)) {
-  $("#android").submit();
-
-} else {
-  $("#ios").submit();
-}
-});
-</script>
-</body>
+    <script type="text/javascript">
+      var ua = navigator.userAgent;
+      var redirectPassiOS = 'https://www.apple.com/jp/ios/app-store/';
+      var redirectPassAnd = 'https://play.google.com/store/apps/details?id=com.Kumakano.UpandBeyond';
+      if(ua.search(/iPhone/) != -1 || ua.search(/iPad/) != -1 || ua.search(/iPod/) != -1){
+          location.href = redirectPassiOS;
+      }else if(ua.search(/Android/) != -1){
+          location.href = redirectPassAnd;
+      }else{
+          location.href = redirectPassiOS;
+      }  
+    </script>
+  </body>
 </html>
